@@ -285,7 +285,7 @@ sequelize db:migrate
 
 ## `6` Add `SECRET SESSION` and Flash to App
 
-`1` Create a `.env` file and place an evironment variable `SECRET_SESSION` with the string of your choice
+`1` Create a `.env` file and place an evironment variable `SECRET_SESSION` with the string of your choice. (.env, no name; if we have an API key, it goes in this file too). 
 
 ```env
 SECRET_SESSION=alldayidreamaboutsoftwareengineering
