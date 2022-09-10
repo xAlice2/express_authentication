@@ -7,6 +7,7 @@ const app = express();
 const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('./config/ppConfig');  //allows us to use passports in our pp application
+const isLoggedIn = require('./middleware/isLoggedIn');
 
 const SECRET_SESSION = process.env.SECRET_SESSION;
 console.log('server.js console.log >>>>>', SECRET_SESSION);
