@@ -2,6 +2,8 @@
 
 Express authentication template using Passport + Flash messages + custom middleware
 
+** This codealong is only meant to help us understand how authentication works because in the real world, auth already exists and won't require us to build.
+
 ## What it includes
 
 * Sequelize user model / migration
@@ -65,7 +67,13 @@ git commit -m "Install dependencies for project"
 
 ## `2` Create Database & Update Sequelize Config
 
-`1` Update **`config.json`** file with the following:
+`1a` Run 
+```text
+sequelize init --force
+```
+** use --force because config already exists
+
+`1b` Update **`config.json`** file with the following:
 
 ```json
 {
@@ -92,12 +100,18 @@ git commit -m "Install dependencies for project"
 }
 ```
 
-`2` Create database `express_auth_dev`
+`2a` Create database `express_auth_dev`
 
 ```text
 sequelize db:create
 ```
+** only works if you've done sequelize init. Can run below command to create `express_auth_dev` as well:
 
+```text
+createdb express_auth_dev
+```
+
+`2b` Doublecheck to ensure the db is created. Go into your postgreSQL Explorer extension, refresh the server and check 
 
 
 ## `3` Analyze File Structure
