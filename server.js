@@ -6,6 +6,7 @@ const layouts = require('express-ejs-layouts');
 const app = express();
 const session = require('express-session');
 const flash = require('connect-flash');
+const passport = require('./config/ppConfig');  //allows us to use passports in our pp application
 
 const SECRET_SESSION = process.env.SECRET_SESSION;
 console.log('server.js console.log >>>>>', SECRET_SESSION);
@@ -29,6 +30,14 @@ app.use(session({
 
 
 app.use(flash());            // invoke flash middleware
+
+/**
+ *  Initialize passport and passport session, invoke it, and pass through as middleware. 
+ *  Place this between the middleware that invokes flash and the middleware that is using res.locals
+ ======================================================================================*/
+app.use(passport.initialize());      // Initialize passport
+app.use(passport.session());         // Add a session
+
 
  // before it goes to home route, this function will run every single time
 app.use((req, res, next) => { // next allows us to do whatever the next thing is
